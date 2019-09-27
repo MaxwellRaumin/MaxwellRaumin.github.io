@@ -84,3 +84,6 @@
       text-align:center;
       background: red;
   }
+  .nopadding tr {
+      padding-top:10px;
+  }
