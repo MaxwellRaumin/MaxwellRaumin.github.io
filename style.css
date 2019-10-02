@@ -87,9 +87,14 @@
   .nopadding tr {
       padding-top:10px;
   }
-  .padding4 {
+  .float {
       float:right;
+      padding-right:50px
   }
   .padding5 {
       padding-left:0px;
+  }
+  .nopadding {
+      float:right;
+      padding-right:none;
   }
