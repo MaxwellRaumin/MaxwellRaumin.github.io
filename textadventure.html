@@ -133,40 +133,13 @@
             b3.style.display = "none";
             b4.style.display = "none";
         }
-        
-        function meetJosephi(){
-            pic.src = "images/josephi.jpg";
-            ptext1.innerHTML= "Hello, I have a spell to put on you.";
-            ptext2.innerHTML= "What would you like to do?";
-            ptext3.innerHTML= "";
-            ptext4.innerHTML= "";
-            b1.innerHTML= "Attack";
-            b2.innerHTML= "Run";
-            b3.innerHTML= "Stay";
-            b1.style.display = "block";
-            b2.style.display = "block";
-            b3.style.display = "block";
-            b4.style.display = "none";
-        }
 
-        function attack(){
-            pic.src = "images/fortnite3";
-            ptext1.innerHTML= "What weapon would you like to use?";
+        function GameOver(){
+            pic.src = "images/gameover.jpg";
+            ptext1.innerHTML= "Never come back here again.";
             ptext2.innerHTML= "";
             ptext3.innerHTML= "";
             ptext4.innerHTML= "";
-            b1.innerHTML= "Pitch Fork";
-            b2.innerHTML= "Garlic";
-            b3.innerHTML= "Boulder";
-            b4.innerHTML= "Holy Water";
-            b1.style.display = "block";
-            b2.style.display = "block";
-            b3.style.display = "block";
-            b4.style.display = "block";
-        }
-        
-        function GameOver(){
-            pic.src = "images/gameover";
             b1.innerHTML= "Return";
             b1.style.display = "block";
             b2.style.display = "none";
@@ -175,7 +148,7 @@
         }
 
         function Gamer(){
-            pic.src = "images/gamer";
+            pic.src = "images/gamer.jpg";
             ptext1.innerHTML= "Are you a gamer?";
             ptext2.innerHTML= "";
             ptext3.innerHTML= "";
@@ -187,11 +160,64 @@
             b3.style.display = "none";
             b4.style.display = "none";
         }
-        
+
+        function meetJosephi(){
+            pic.src = "images/josephi.jpg";
+            ptext1.innerHTML= "Good! We don't want any imposters here."
+            ptext2.innerHTML= "There once was a young lad by the name of Josephi Kirckowski who lived in an old farm inherited by his grandparents just south of Salty Springs. He came from a poor family, one mother, one father, and two little brothers; Vladmir and Count Chocula.";
+            ptext3.innerHTML= "They lived off of the agriculture they grew on the farm. However, on the day of August 3, 1492, winter lasted far longer than the past years. Thus, the crops were too late for harvest resulting in no food for the family.";
+            ptext4.innerHTML= " Josephi, being an adventurous foe, sets out into greater lands to find help and food to provide for his family. The island which he is on varies from abandoned oil factories, to green forests, to small hometowns in hilltops.";
+            b1.innerHTML= "Continue";
+            b1.style.display = "block";
+            b2.style.display = "none";
+            b3.style.display = "none";
+            b4.style.display = "none";
+        }
+
+        function meetJosephi2(){
+            pic.src = "images/josephi.jpg";
+            ptext1.innerHTML= "The young man knew of the dangers ahead, with fierce 100 tier players, spike traps as far as the eye can see, and a deadly storm from all sides closing in. Josephi knew what he was up against, however, packed his bags with all he had: two minis, one common pump with 8 shells, and a fishing rod.";
+            ptext2.innerHTML= "He meets many fellow players along the way, however it is uncertain who are the enemies and/ or allies, what weapons he will choose in battle, and what path he finds best on his quest for the EPIC VICTORY ROYALE.";
+            ptext3.innerHTML= " In the end, Josephi’s main goal was to bring assured survival for his family as well as emote on all of the enemies that stood in his way of fulfilling this quest. So now, fellow gamer, you have taken the place of Josephi Kirckowski. Where do you go?";
+            ptext4.innerHTML= "";
+            b1.innerHTML= "West";
+            b2.innerHTML= "East";
+            b1.style.display = "block";
+            b2.style.display = "block";
+            b3.style.display = "none";
+            b4.style.display = "none";
+        }
+
+        function NoobSlayer445(){
+            pic.src = "images/spikey.png";
+            ptext1.innerHTML= "You stumble upon a new but experienced player fps games. You use your third person tactics for your upper hand. What do you do?";
+            ptext2.innerHTML= "";
+            ptext3.innerHTML= "";
+            ptext4.innerHTML= "";
+            b1.innerHTML= "Build Battle";
+            b2.innerHTML= "Wait until he passes away from your area.";
+            b1.style.display = "block";
+            b2.style.display = "block";
+            b3.style.display = "none";
+            b4.style.display = "none";
+        }
+
+        function GameOver2(){
+            pic.src = "images/gameover.jpg";
+            ptext1.innerHTML= "You have no materials, bruh.";
+            ptext2.innerHTML= "";
+            ptext3.innerHTML= "";
+            ptext4.innerHTML= "";
+            b1.innerHTML= "Return";
+            b1.style.display = "block";
+            b2.style.display = "none";
+            b3.style.display = "none";
+            b4.style.display = "none";
+        }
         //state machine
         function bclick(button){
             if(state == "intro"){
-                if(buttom == 1){
+                if(button == 1){
                    Gamer();
                    state = "Gamer";
                 }
@@ -207,9 +233,44 @@
                 }
                 else if(button == 2){
                     GameOver();
-                    state = "GameOver"
+                    state = "GameOver";
                 }
             }
+            else if(state == "GameOver"){
+                if(button == 1){
+                    intro();
+                    state = "intro";
+                }
+            }
+            else if(state == "meetJosephi"){
+                if(button == 1){
+                    meetJosephi2();
+                    state = "meetJosephi2";
+                }
+            }
+            else if(state == "meetJosephi2"){
+                if(button == 1){
+                    NoobSlayer445();
+                    state = "NoobSlayer445";
+                }
+            }
+            else if(state == "NoobSlayer445"){
+                if(button == 1){
+                    GameOver2();
+                    state = "GameOver2"
+                }
+                else if(button == 2)
+                    LootLlama();
+                    state = "LootLlama"
+            }
+
+            else if(state == "GameOver2"){
+                if(button == 1){
+                    intro();
+                    state = "intro";
+                }   
+            }
+
             return false;
         }
     
