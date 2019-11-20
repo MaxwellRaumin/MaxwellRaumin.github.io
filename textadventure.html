@@ -164,9 +164,9 @@
         function meetJosephi(){
             pic.src = "images/josephi.jpg";
             ptext1.innerHTML= "Good! We don't want any imposters here."
-            ptext2.innerHTML= "There once was a young lad by the name of Josephi Kirckowski who lived in an old farm inherited by his grandparents just south of Salty Springs. He came from a poor family, one mother, one father, and two little brothers; Vladmir and Count Chocula.";
+            ptext2.innerHTML= "There once was a young lad by the name of Josephi Kirckowski who lived in an old farm inherited by his grandparents just south of Salty Springs. He came from a poor family, a mother, a father, and two little brothers; Vladmir and Count Chocula.";
             ptext3.innerHTML= "They lived off of the agriculture they grew on the farm. However, on the day of August 3, 1492, winter lasted far longer than the past years. Thus, the crops were too late for harvest resulting in no food for the family.";
-            ptext4.innerHTML= " Josephi, being an adventurous foe, sets out into greater lands to find help and food to provide for his family. The island which he is on varies from abandoned oil factories, to green forests, to small hometowns in hilltops.";
+            ptext4.innerHTML= "Josephi, being an adventurous foe, sets out into greater lands to find help and food to provide for his family. The island which he is on varies from abandoned oil factories, to green forests, to small hometowns on hilltops.";
             b1.innerHTML= "Continue";
             b1.style.display = "block";
             b2.style.display = "none";
@@ -178,8 +178,8 @@
             pic.src = "images/josephi.jpg";
             ptext1.innerHTML= "The young man knew of the dangers ahead, with fierce 100 tier players, spike traps as far as the eye can see, and a deadly storm from all sides closing in. Josephi knew what he was up against, however, packed his bags with all he had: two minis, one common pump with 8 shells, and a fishing rod.";
             ptext2.innerHTML= "He meets many fellow players along the way, however it is uncertain who are the enemies and/ or allies, what weapons he will choose in battle, and what path he finds best on his quest for the EPIC VICTORY ROYALE.";
-            ptext3.innerHTML= " In the end, Josephi’s main goal was to bring assured survival for his family as well as emote on all of the enemies that stood in his way of fulfilling this quest. So now, fellow gamer, you have taken the place of Josephi Kirckowski. Where do you go?";
-            ptext4.innerHTML= "";
+            ptext3.innerHTML= " In the end, Josephi’s main goal was to bring assured survival for his family and emote on all of the enemies that stood in his way.";
+            ptext4.innerHTML= "So now, fellow gamer, you have taken the place of Josephi Kirckowski. Where do you go?";
             b1.innerHTML= "West";
             b2.innerHTML= "East";
             b1.style.display = "block";
@@ -211,6 +211,59 @@
             b1.innerHTML= "Return";
             b1.style.display = "block";
             b2.style.display = "none";
+            b3.style.display = "none";
+            b4.style.display = "none";
+        }
+
+        function LootLlama(){
+            pic.src = "images/spikey.png";
+            ptext1.innerHTML= "Congradulations! You have found a loot llama and a chest with a Gold Scar!";
+            ptext2.innerHTML= "You move just in time before a baseball smashes through the icy floor of wear you stood. You look up and see the on and only Great Waluigi!";
+            ptext3.innerHTML= "What is your next move?";
+            ptext4.innerHTML= "";
+            b1.innerHTML= "Build for high ground";
+            b2.innerHTML= "Reply with Waah! to Waluigi";
+            b1.style.display = "block";
+            b2.style.display = "block";
+            b3.style.display = "none";
+            b4.style.display = "none";
+        }
+
+        function YouWin(){
+            pic.src = "images/bravo.png"
+            ptext1.innerHTML= "Congrats, you have beaten the game! Now its time to go outside because we all know you haven't yet today.";
+            ptext2.innerHTML= "";
+            ptext3.innerHTML= "";
+            ptext4.innerHTML= "";
+            b1.innerHTML= "Return";
+            b1.style.display = "block";
+            b2.style.display = "none";
+            b3.style.display = "none";
+            b4.style.display = "none";
+        }
+
+        function QuitGame(){
+            pic.src = "images/gameover.jpg";
+            ptext1.innerHTML= "Outstanding move, sir.";
+            ptext2.innerHTML= "";
+            ptext3.innerHTML= "";
+            ptext4.innerHTML= "";
+            b1.innerHTML= "Return";
+            b1.style.display = "block";
+            b2.style.display = "none";
+            b3.style.display = "none";
+            b4.style.display = "none";
+        }
+        function DefeatWaah(){
+            pic.src = "images/spikey.png";
+            ptext1.innerHTML= "His thighs are strong but your Scar is stronger!";
+            ptext2.innerHTML= "Just because of common sense, you loot the Waah master and gladly but respectfully emote on him.";
+            ptext3.innerHTML= "What is your next move?";
+            ptext4.innerHTML= "";
+            b1.innerHTML= "Quit the game";
+            b2.innerHTML= "Emote again";
+            b1.style.display = "block";
+            b2.style.display = "block";
             b3.style.display = "none";
             b4.style.display = "none";
         }
@@ -257,18 +310,50 @@
             else if(state == "NoobSlayer445"){
                 if(button == 1){
                     GameOver2();
-                    state = "GameOver2"
+                    state = "GameOver2";
                 }
-                else if(button == 2)
+                else if(button == 2){
                     LootLlama();
-                    state = "LootLlama"
+                    state = "LootLlama";
+                }
             }
-
             else if(state == "GameOver2"){
                 if(button == 1){
                     intro();
                     state = "intro";
                 }   
+            }
+            else if(state == "LootLlama"){
+                if(button == 1){
+                    DefeatWaah();
+                    state = "DefeatWaah";
+                }
+                else if(button == 2){
+                    YouWin();
+                    state = "YouWin";
+                }
+            }
+            else if(state == "YouWin"){
+                if(button == 1){
+                    intro();
+                    state = "intro"
+                }
+            }
+            else if(state == "DefeatWaah"){
+                if(button == 1){
+                    QuitGame();
+                    state = "QuitGame";
+                }
+                else if(button == 2){
+                    WhichEmote();
+                    state = "WhichEmote";
+                }
+            }
+            else if(state == "QuitGame"){
+                if(button == 1){
+                    intro();
+                    state = "intro";
+                }
             }
 
             return false;
